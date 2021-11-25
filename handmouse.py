@@ -7,12 +7,14 @@ import numpy as np
 import math
 import mediapipe as mp
 import pyttsx3
+from playsound import playsound
+engine=pyttsx3.init()
 #import modules
 #variables
 frameR=100 #frame reduction
 wCam,hCam=1280,720
 pTime=0
-smoothening = 4 #need to tune
+smoothening = 7 #need to tune
 plocX, plocY=0,0
 clocX,clocY=0,0
 ##########
@@ -21,6 +23,9 @@ cap.set(3, wCam)
 cap.set(4, hCam)
 detector=htm.handDetector(maxHands=1)
 wScr, hScr=autopy.screen.size()
+playsound("startup.wav")
+engine.say("Mouse initiated")
+engine.runAndWait()
 while True:
     #1. find hand landmarks
     success, img = cap.read()
@@ -74,5 +79,6 @@ while True:
 
 
     #show image
+    
     cv2.imshow("Image",img)
     cv2.waitKey(1)
