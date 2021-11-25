@@ -6,12 +6,13 @@ import autopy
 import numpy as np
 import math
 import mediapipe as mp
+import pyttsx3
 #import modules
 #variables
 frameR=100 #frame reduction
 wCam,hCam=1280,720
 pTime=0
-smoothening = 5 #need to tune
+smoothening = 4 #need to tune
 plocX, plocY=0,0
 clocX,clocY=0,0
 ##########
