@@ -12,7 +12,7 @@ engine=pyttsx3.init()
 #import modules
 #variables
 frameR=100 #frame reduction
-wCam,hCam=1280,720
+wCam,hCam=1280,700 #720
 pTime=0
 smoothening = 7 #need to tune
 plocX, plocY=0,0
