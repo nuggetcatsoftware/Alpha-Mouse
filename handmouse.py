@@ -6,13 +6,12 @@ import autopy
 import numpy as np
 import math
 import mediapipe as mp
-import pyttsx3
-from playsound import playsound
-engine=pyttsx3.init()
 #import modules
 #variables
-frameR=100 #frame reduction
-wCam,hCam=1280,700 #720
+frameR=20 #frame reduction
+frameR_x=100
+frameR_y=20
+wCam,hCam=1100,400
 pTime=0
 smoothening = 7 #need to tune
 plocX, plocY=0,0
@@ -23,9 +22,6 @@ cap.set(3, wCam)
 cap.set(4, hCam)
 detector=htm.handDetector(maxHands=1)
 wScr, hScr=autopy.screen.size()
-playsound("startup.wav")
-engine.say("Mouse initiated")
-engine.runAndWait()
 while True:
     #1. find hand landmarks
     success, img = cap.read()
@@ -40,7 +36,7 @@ while True:
 
     #3. check which finger is up
         fingers=detector.fingersUp()
-        cv2.rectangle(img, (frameR, frameR), (wCam-frameR,hCam-frameR),(255,0,0),2)
+        cv2.rectangle(img, (frameR_x, frameR_y), (wCam-frameR_x,hCam-frameR_y),(255,0,0),2)
 
     #4. check if it is finger is in moving. index= moving, index and middle=clicking
     #convert the coordinates to get correct position
@@ -48,8 +44,8 @@ while True:
             #moving mode
             
             
-            x3= np.interp(x1,(frameR,wCam-frameR),(0,wScr))
-            y3= np.interp(y1,(frameR,hCam-frameR),(0,hScr))
+            x3= np.interp(x1,(frameR,wCam-frameR_x),(0,wScr))
+            y3= np.interp(y1,(frameR,hCam-frameR_y),(0,hScr))
 
     #5.smoothen the values
             clocX=plocX+(x3-plocX)/smoothening
@@ -79,6 +75,5 @@ while True:
 
 
     #show image
-    
     cv2.imshow("Image",img)
     cv2.waitKey(1)
