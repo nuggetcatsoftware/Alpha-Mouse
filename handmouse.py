@@ -8,7 +8,6 @@ import numpy as np
 import math
 import mediapipe as mp
 import pyttsx3
-from playsound import playsound
 engine=pyttsx3.init()
 #import modules
 #variables
@@ -26,7 +25,6 @@ cap.set(3, wCam)
 cap.set(4, hCam)
 detector=htm.handDetector(maxHands=1)
 wScr, hScr=autopy.screen.size()
-playsound("startup.wav")
 engine.say("Mouse initiated")
 engine.runAndWait()
 while True:
