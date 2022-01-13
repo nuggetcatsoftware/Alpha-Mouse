@@ -13,11 +13,11 @@ engine=pyttsx3.init()
 #import modules
 #variables
 frameR=20 #frame rduction
-frameR_x=190
-frameR_y=50
+frameR_x=220
+frameR_y=100
 wCam,hCam=1300 ,400
 pTime=0
-smoothening = 7 #need to tune
+smoothening = 6 #need to tune
 plocX, plocY=0,0
 clocX,clocY=0,0
 ##########
