@@ -1,3 +1,4 @@
+from operator import truediv
 import cv2
 import time
 import HandTrackingModule as htm
@@ -6,12 +7,15 @@ import autopy
 import numpy as np
 import math
 import mediapipe as mp
+import pyttsx3
+from playsound import playsound
+engine=pyttsx3.init()
 #import modules
 #variables
-frameR=20 #frame reduction
-frameR_x=100
-frameR_y=20
-wCam,hCam=1100,400
+frameR=20 #frame rduction
+frameR_x=190
+frameR_y=50
+wCam,hCam=1300 ,400
 pTime=0
 smoothening = 7 #need to tune
 plocX, plocY=0,0
@@ -22,6 +26,9 @@ cap.set(3, wCam)
 cap.set(4, hCam)
 detector=htm.handDetector(maxHands=1)
 wScr, hScr=autopy.screen.size()
+playsound("startup.wav")
+engine.say("Mouse initiated")
+engine.runAndWait()
 while True:
     #1. find hand landmarks
     success, img = cap.read()
@@ -64,7 +71,11 @@ while True:
             if length<40:
                 cv2.circle(img, (lineinfo[4],lineinfo[5]),7,(0,200,0),cv2.FILLED)
                 autopy.mouse.click()
-                
+
+        if fingers[1]==1 and fingers[2]==2 and fingers[3]==3:
+            length, img, lineinfo=detector.findDistance(8,12,img)
+            if length<40:
+                print("true")
 
     #frame rate
     cTime =time.time()
