@@ -11,7 +11,7 @@ import mediapipe as mp
 #import modules
 #variables
 frameR=20 #frame rduction
-frameR_x=900
+frameR_x=800
 frameR_y=110
 wCam,hCam=1300 ,400
 pTime=0
