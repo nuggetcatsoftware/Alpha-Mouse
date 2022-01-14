@@ -8,7 +8,6 @@ An implementation of hand-motion detection to control mouse cursors like a weird
 3. Run the handmouse.exe file
 4. Use it maybe?
 
-<<<<<<< HEAD
 ## Known Issues
 1. The app cannot be manually close. Please open task manager and close it yourself manually
 2. Everyone's hands are different, some people's hand might not work, we are trying to make this application accessible to people with different abilities. #diversity #blessed #love #nohate
@@ -40,6 +39,3 @@ This mouse uses a threshold variable to control the sensitivity to flickering ra
 Hands may not detect properly on first time start. Put both hands in front of your computer and slowly turn both hands until a green frame appears. Note: Prolonged use of the application may reduce accuracy and calibrate when appropiate
 # Packaging
 This program can be packaged into an exe version. Due to how broken mediapipe can be during packaging, please use handmouse.spec spec file to run pyinstaller such that it can run properly
-
-
->>>>>>> c4ed77edf1b4e24a2e806cd17f2715b82beffef9
