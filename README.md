@@ -38,5 +38,8 @@ This mouse uses a threshold variable to control the sensitivity to flickering ra
 =======
 # Calibration
 Hands may not detect properly on first time start. Put both hands in front of your computer and slowly turn both hands until a green frame appears. Note: Prolonged use of the application may reduce accuracy and calibrate when appropiate
+# Packaging
+This program can be packaged into an exe version. Due to how broken mediapipe can be during packaging, please use handmouse.spec spec file to run pyinstaller such that it can run properly
+
 
 >>>>>>> c4ed77edf1b4e24a2e806cd17f2715b82beffef9
