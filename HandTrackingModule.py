@@ -93,7 +93,6 @@ def main():
         success, img=cap.read()
         img=detector.findHands(img)
         lmList=detector.findPosition(img)
-
         cTime=time.time()
         fps=1/(cTime-pTime)
         pTime=cTime
