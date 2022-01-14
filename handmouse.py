@@ -11,11 +11,11 @@ import mediapipe as mp
 #import modules
 #variables
 frameR=20 #frame rduction
-frameR_x=220
-frameR_y=100
+frameR_x=900
+frameR_y=110
 wCam,hCam=1300 ,400
 pTime=0
-smoothening = 6 #need to tune
+smoothening = 5 #need to tune
 plocX, plocY=0,0
 clocX,clocY=0,0
 ##########
@@ -23,7 +23,7 @@ cap=cv2.VideoCapture(0)
 cap.set(3, wCam)
 cap.set(4, hCam)
 detector=htm.handDetector(maxHands=1)
-wScr, hScr=autopy.screen.size()
+wScr, hScr=autopy.screen.size() 
 while True:
     #1. find hand landmarks
     success, img = cap.read()
@@ -66,6 +66,7 @@ while True:
             if length<40:
                 cv2.circle(img, (lineinfo[4],lineinfo[5]),7,(0,200,0),cv2.FILLED)
                 autopy.mouse.click()
+                time.sleep(1)
 
         if fingers[1]==1 and fingers[2]==2 and fingers[3]==3:
             length, img, lineinfo=detector.findDistance(8,12,img)
