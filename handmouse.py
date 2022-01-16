@@ -1,6 +1,6 @@
 from operator import truediv
 import cv2
-import time
+from time import sleep
 import HandTrackingModule as htm
 import os
 import autopy
@@ -11,7 +11,7 @@ import mediapipe as mp
 #import modules
 #variables
 frameR=20 #frame rduction
-frameR_x=900
+frameR_x=800
 frameR_y=110
 wCam,hCam=1300 ,400
 pTime=0
@@ -66,7 +66,7 @@ while True:
             if length<40:
                 cv2.circle(img, (lineinfo[4],lineinfo[5]),7,(0,200,0),cv2.FILLED)
                 autopy.mouse.click()
-                time.sleep(1)
+                sleep(0.3)
 
         if fingers[1]==1 and fingers[2]==2 and fingers[3]==3:
             length, img, lineinfo=detector.findDistance(8,12,img)
