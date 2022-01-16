@@ -11,7 +11,7 @@ import mediapipe as mp
 #import modules
 #variables
 frameR=20 #frame rduction
-frameR_x=800
+frameR_x=900
 frameR_y=110
 wCam,hCam=1300 ,400
 pTime=0
@@ -72,12 +72,6 @@ while True:
             length, img, lineinfo=detector.findDistance(8,12,img)
             if length<40:
                 print("true")
-
-    #frame rate
-    cTime =time.time()
-    fps=1//(cTime-pTime)
-    pTime=cTime
-    cv2.putText(img,str(int(fps)), (20,50),cv2.FONT_HERSHEY_COMPLEX,3, (0,0,255),3 )
 
 
 
